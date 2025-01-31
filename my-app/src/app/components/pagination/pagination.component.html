@@ -1,0 +1,22 @@
+<div class="flex justify-center mt-4">
+    <button
+      (click)="changePage(currentPage - 1)"
+      [disabled]="currentPage === 1"
+      class="px-4 py-2 mx-1 border-b-1 rounded-top bg-gray-200 hover:bg-gray-300"
+    >
+      Previous
+    </button>
+  
+    <span class="px-4 py-2 border rounded bg-blue-500 text-white mx-1">
+      {{ currentPage }} / {{ totalPages }}
+    </span>
+  
+    <button
+      (click)="changePage(currentPage + 1)"
+      [disabled]="currentPage === totalPages"
+      class="px-4 py-2 mx-1 border-b-1 rounded-top bg-gray-200 hover:bg-gray-300"
+    >
+      Next
+    </button>
+  </div>
+  

@@ -55,7 +55,7 @@
     </thead>
     <tbody>
       
-        <tr *ngFor="let user of filteredUsers">
+        <tr *ngFor="let user of paginatedUsers">
           <td class="border-b-1 p-2 text-center text-gray-700">{{ user.userName }}</td>
           <td class="border-b-1 p-2 text-center text-gray-700">{{ getWorkoutTypes(user) }}</td>
           <td class="border-b-1 p-2 text-center text-gray-700">{{ user.workoutData.length }}</td>
@@ -65,4 +65,11 @@
     </tbody>
   </table>
 </div>
+
+<app-pagination
+  [totalItems]="filteredUsers.length"
+  [itemsPerPage]="itemsPerPage"
+  [currentPage]="currentPage"
+  (pageChanged)="onPageChange($event)">
+</app-pagination>
 <router-outlet />
