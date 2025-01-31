@@ -53,7 +53,13 @@
     </thead>
     <tbody>
       
-      
+        <tr *ngFor="let user of users">
+          <td class="border-b-1 p-2 text-center text-gray-700">{{ user.userName }}</td>
+          <td class="border-b-1 p-2 text-center text-gray-700">{{ getWorkoutTypes(user) }}</td>
+          <td class="border-b-1 p-2 text-center text-gray-700">{{ user.workoutData.length }}</td>
+          <td class="border-b-1 p-2 text-center text-gray-700">{{ calculateTotal(user) }}</td>
+        </tr>
+        
     </tbody>
   </table>
 </div>

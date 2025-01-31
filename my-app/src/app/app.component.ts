@@ -3,10 +3,11 @@ import { RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { User, Workout } from './app.model';
 import { WorkoutService } from './app.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet , FormsModule],
+  imports: [RouterOutlet , FormsModule,CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -40,5 +41,14 @@ export class AppComponent {
     this.userName = '';
     this.workoutType = '';
     this.workoutMinutes = null;
+  }
+
+  calculateTotal(user: { workoutData: Workout[] }): number {
+    return user.workoutData.reduce((total: number, workout: Workout) => total + workout.minutes, 0);
+  }
+
+  // New method to get workout types as a comma-separated string
+  getWorkoutTypes(user: { workoutData: Workout[] }): string {
+    return user.workoutData.map(workout => workout.type).join(', ');
   }
 }
