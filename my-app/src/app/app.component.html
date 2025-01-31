@@ -41,6 +41,8 @@
   </form>
 </div>
 
+<app-search-filter (search)="onSearch($event)" (filter)="onFilterChange($event)"></app-search-filter>
+
 <div class="p-4 max-w-5/6 mx-auto bg-white rounded-xl shadow-md">
   <table class="font-normal mt-4 w-full">
     <thead>
@@ -53,7 +55,7 @@
     </thead>
     <tbody>
       
-        <tr *ngFor="let user of users">
+        <tr *ngFor="let user of filteredUsers">
           <td class="border-b-1 p-2 text-center text-gray-700">{{ user.userName }}</td>
           <td class="border-b-1 p-2 text-center text-gray-700">{{ getWorkoutTypes(user) }}</td>
           <td class="border-b-1 p-2 text-center text-gray-700">{{ user.workoutData.length }}</td>

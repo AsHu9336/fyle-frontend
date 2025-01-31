@@ -4,10 +4,11 @@ import { FormsModule } from '@angular/forms';
 import { User, Workout } from './app.model';
 import { WorkoutService } from './app.service';
 import { CommonModule } from '@angular/common';
+import { SearchFilterComponent } from './components/search-filter/search-filter.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet , FormsModule,CommonModule],
+  imports: [RouterOutlet , FormsModule,CommonModule, SearchFilterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -18,9 +19,13 @@ export class AppComponent {
   workoutType: string = '';
   workoutMinutes: number | null = null;
   users: User[] = [];
+  total: number = 0;
+  filteredUsers: User[] = [];
+  paginatedUsers: User[] = [];
 
   constructor(private workoutService: WorkoutService) {
     this.users = this.workoutService.getUsers();
+    this.filteredUsers = this.users;
    
   }
 
@@ -51,4 +56,23 @@ export class AppComponent {
   getWorkoutTypes(user: { workoutData: Workout[] }): string {
     return user.workoutData.map(workout => workout.type).join(', ');
   }
-}
+
+  onSearch(searchText: string) {
+    this.filteredUsers = this.users.filter(user =>
+      user.userName.toLowerCase().includes(searchText.toLowerCase())
+    );
+    console.log('filteredUsers:', this.filteredUsers);
+    
+  }
+
+  onFilterChange(workoutType: string) {
+    console.log('workoutType:', workoutType);
+    this.filteredUsers = workoutType
+      ? this.users.filter(user =>
+          user.workoutData.some(workout => workout.type === workoutType)
+        )
+      : this.users;
+
+      console.log('filteredUsers:', this.filteredUsers);
+      
+}}
