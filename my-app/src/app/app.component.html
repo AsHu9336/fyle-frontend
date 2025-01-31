@@ -4,7 +4,7 @@
 <!-- </div> -->
 <!-- <h2 class="text-xl font-semibold mb-4">Health Challenge Tracker</h2> -->
 <div class="p-4 max-w-4/5 mb-4 mx-auto bg-white rounded-xl shadow-md">
-  <form  class="space-y-0.5 flex flex-row">
+  <form (submit)="addWorkout()"  class="space-y-0.5 flex flex-row">
     <input
       type="text"
       [(ngModel)]="userName"
@@ -39,5 +39,22 @@
       Add Workout
     </button>
   </form>
+</div>
+
+<div class="p-4 max-w-5/6 mx-auto bg-white rounded-xl shadow-md">
+  <table class="font-normal mt-4 w-full">
+    <thead>
+      <tr class="">
+        <th class="border-b-1 p-2">Name</th>
+        <th class="border-b-1 p-2">Workouts</th>
+        <th class="border-b-1 p-2">Number of Workouts</th>
+        <th class="border-b-1 p-2">Total Workouts Minutes</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      
+    </tbody>
+  </table>
 </div>
 <router-outlet />
