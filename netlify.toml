@@ -1,6 +1,6 @@
 [build]
   base="my-app"
-  command = "ng build --prod"
+  command = "ng build"
   publish = "dist/browser"
 
   [[redirects]]
