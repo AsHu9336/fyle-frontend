@@ -28,3 +28,10 @@ An **Angular 19** single-page application (SPA) for tracking user workouts, with
 git clone https://github.com/your-username/health-challenge-tracker.git
 cd health-challenge-tracker
 
+npm install
+
+ng serve
+
+---
+
+Now visit http://localhost:4200 in your browser.
