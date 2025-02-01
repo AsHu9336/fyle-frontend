@@ -95,4 +95,6 @@ export class AppComponent {
     const endIndex = startIndex + this.itemsPerPage;
     this.paginatedUsers = this.filteredUsers.slice(startIndex, endIndex);
   }
+
+  
 }
