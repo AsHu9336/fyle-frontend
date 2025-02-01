@@ -13,7 +13,7 @@ An **Angular 19** single-page application (SPA) for tracking user workouts, with
 ✅ **Pagination** for large lists  
 ✅ **LocalStorage support** for persistence  
 ✅ **Unit tests** with **100% code coverage**  
-✅ Hosted on **[Live Demo](#)** *(Add deployment link here!)*  
+✅ Hosted on **[Live Demo](#)** *(fyle-frontend-ashutosh.netlify.app/)*  
 
 ---
 
